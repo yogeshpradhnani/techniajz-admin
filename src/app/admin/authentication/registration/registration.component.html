@@ -1,0 +1,129 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body add-post custom-dropzone-project">
+          <form
+            [formGroup]="addPropertyUserForm.formGroup"
+            
+            class="row needs-validation"
+            novalidate
+          >
+            <!-- File Upload -->
+            <div class="form-group col-12">
+              <label>Upload:</label>
+              <div class="custom-drop-zone" (click)="fileInput.click()">
+                <input
+                  #fileInput
+                  accept="image/*"
+                  type="file"
+                  multiple
+                  (change)="onFilesSelected($event)"
+                  style="display: none;"
+                />
+                <div class="dz-wrapper">
+                  <div class="dz-message">
+                    <div class="dz-text">
+                      <div
+                        class="preview-area"
+                        *ngIf="selectedImages.length > 0"
+                      >
+                        <h4>Selected Images:</h4>
+                        <div
+                          class="image-preview"
+                          *ngFor="let image of selectedImages; let i = index"
+                        >
+                          <div class="image-container">
+                            <img
+                              [src]="image.preview"
+                              [alt]="image.file.name"
+                              width="150"
+                            />
+                            <div class="hover-info">
+                              <p>{{ (image.file.size / 1024).toFixed(2) }} KB</p>
+                            </div>
+                          </div>
+                          <p>{{ image.file.name }}</p>
+                          <button
+                            type="button"
+                            (click)="removeImage(i)"
+                            class="btn btn-danger btn-sm"
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                      <i class="fas fa-cloud-upload-alt"></i>
+                      <h4>Drag & Drop your files or Browse</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="form-group col-12">
+              <label for="location">Location:</label>
+              <input
+                type="text"
+                id="location"
+                formControlName="location"
+                class="form-control"
+                placeholder="Location"
+              />
+              <!-- <div
+                *ngIf="addPropertyUserForm.controls['location'].invalid && addPropertyUserForm.controls['location'].touched"
+                class="text-danger"
+              >
+                Location is required.
+              </div> -->
+            </div>
+
+            <!-- Facility -->
+            <div class="form-group col-12">
+              <label for="facility">Facilities:</label>
+              <div *ngFor="let facility of facilities">
+                <input
+                  type="checkbox"
+                  [value]="facility"
+                  (change)="onFacilityChange($event, facility)"
+                />
+                {{ facility }}
+              </div>
+            </div>
+            
+            
+
+            <!-- Content -->
+            <div class="form-group col-12">
+              <label for="content">Content:</label>
+              <input
+                id="content"
+                type="number"
+                formControlName="content"
+                class="form-control"
+                placeholder="Enter Phone number..."
+              >
+              <!-- <div
+                *ngIf="addPropertyUserForm.controls['content'].invalid && addPropertyUserForm.controls['content'].touched"
+                class="text-danger"
+              >
+                Content must be at least 10 characters.
+              </div> -->
+            </div>
+
+            <!-- Buttons -->
+            <div class="form-group col-12 d-flex justify-content-end">
+              <input type="submit" class="btn btn-primary" (click)="onSubmit()">
+              
+              <!-- </input> -->
+              <button type="button" class="btn btn-secondary btn-discard">
+                Discard
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

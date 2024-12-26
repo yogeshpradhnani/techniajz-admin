@@ -1,0 +1,95 @@
+<div class="container-fluid">
+  <div class="card card-width">
+    <div class="row justify-content-between m-3">
+      <div class="col-md-2 btn-group text-start"></div>
+      <div class="col-md-4 d-flex justify-content-end">
+        <button class="btn btn-outline-primary mx-1" [routerLink]="['/', 'admin', 'user-profile', 'edit-profile', employeeData?._id]" *ngIf="isPermission">Edit <i class="icofont icofont-pencil-alt-2"></i></button>
+      </div>
+    </div>
+    <hr />
+    <div class="card-body card-height">
+      <div class="tab-pane fade show">
+        <div class="profile-title">
+          <div class="d-flex align-items-center">
+            <img class="rounded-circle img-bg profile-img" alt="profile" [src]="employeeData?.profile_pitcture ? imageFullPath + employeeData?.profile_pitcture : 'assets/images/logo/ic_avatar@3x.png'" />
+            <div class="flex-grow-1 mx-3">
+              <h3 class="mb-1">{{ employeeData?.name }}</h3>
+              <p>{{ employeeData?.responsibilities || " " }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="my-2 d-flex col-md-6">
+            <p>Employe ID:</p>
+            <p class="mx-2 form-label">{{ employeeData?.id || " " }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>Designation:</p>
+            <p class="mx-2 form-label">{{ employeeData?.designationId?.name || " " }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>Gender:</p>
+            <p class="mx-2 form-label">{{ employeeData?.gender || " " }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>DOB:</p>
+            <p class="mx-2 form-label">{{ employeeData?.dob || " " }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>Contact Number:</p>
+            <p class="mx-2 form-label">{{ employeeData?.mobile || " " }} <i class="icofont icofont-social-whatsapp icon mx-1" *ngIf="employeeData?.isWhatsappNumber"></i></p>
+          </div>
+          <div class="my-2 d-flex col-md-6" *ngIf="employeeData?.alternative_number">
+            <p>Alternate Number:</p>
+            <p class="mx-2 form-label">{{ employeeData?.alternative_number || " " }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>Email:</p>
+            <p class="mx-2 form-label">{{ employeeData?.email || " " }}</p>
+          </div>
+
+          <div class="my-2 d-flex col-md-6">
+            <p>Highest Qualification:</p>
+            <p class="mx-2 form-label">{{ employeeData?.highest_qualification !== "null" ? employeeData?.highest_qualification : " " }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>Blood Group:</p>
+            <p class="mx-2 form-label">{{ employeeData?.blood_group !== "null" ? employeeData?.blood_group : " " }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>Communication Skill:</p>
+            <p class="mx-2 form-label">{{ employeeData?.communicationSkill !== "null" ? employeeData?.communicationSkill : " " }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>Monthly Salary:</p>
+            <p class="mx-2 form-label">{{ employeeData?.current_salary !== "null" ? changeToCurrency(employeeData?.current_salary) : " " }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>Role :</p>
+            <p class="mx-2 form-label">{{ employeeData?.roles?.name }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>PunchIn Time :</p>
+            <p class="mx-2 form-label">{{ convertTimeFormat(employeeData?.startTime || employeeData?.roles?.startTime) }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>PunchOut Time :</p>
+            <p class="mx-2 form-label">{{ convertTimeFormat(employeeData?.endTime || employeeData?.roles?.endTime) }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>Allowed Time :</p>
+            <p class="mx-2 form-label">{{ parseTimeHHMMSS(employeeData?.timeAllowed || employeeData?.roles?.timeAllowed) }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>Local Address:</p>
+            <p class="mx-2 form-label">{{ employeeData?.address !== "null" ? employeeData?.address : " " }}</p>
+          </div>
+          <div class="my-2 d-flex col-md-6">
+            <p>Permanent Address:</p>
+            <p class="mx-2 form-label">{{ employeeData?.permanentAddress !== "null" ? employeeData?.permanentAddress : " " }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

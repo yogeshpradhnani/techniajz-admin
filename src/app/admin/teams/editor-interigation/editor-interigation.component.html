@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header pb-0">
+          <h3>Ck Editor</h3>
+        </div>
+        <div class="card-body">
+          <div>
+            <div class="main-container">
+              <div class="editor-container editor-container_classic-editor" #editorContainerElement>
+                <div class="editor-container__editor">
+                  <div #editorElement>
+                    <ckeditor [editor]="Editor" [config]="config" [(ngModel)]="data" style = "color : #1F2F3E !important;"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <div>
+              <div class="btn-group mx-1">
+                <button class="btn-sm btn-primary mx-1" >Save Editor Code</button>
+              </div>
+              <div class="btn-group mx-1">
+                <button class="btn-sm btn-primary mx-1" >Download PDF</button>
+              </div>
+              <div class="btn-group mx-1">
+                <button class="btn-sm btn-primary mx-1"  [routerLink]="['/', 'admin', 'team', 'add-teams1', codeId]" [disabled]="codeId">Edit Pdf just Saved</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+@import "./src/assets/scss/themes/custom";
+.info-box {
+  font-size: 48px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+}
+
+.info-box-calender {
+  background-color: #03a9f4;
+}
+
+.icon-size {
+  font-size: 40px !important;
+  height: auto;
+  width: auto;
+  color: #464846;
+}
+
+.mat-card-title {
+  font-weight: 500 !important;
+}
+
+mat-card-header {
+  background: #c5ddc3 !important;
+}
+
+.event {
+  height: 33px !important;
+}
+.icon-class {
+  background-color: rgba($primary-color, 0.5) !important;
+}
+
+.btn-sm {
+  padding-top: 3px;
+}
+
+.fire-icon {
+  color: red;
+  font-size: x-large;
+}
+
+.ice-icon {
+  color: aqua;
+  font-size: x-large;
+}

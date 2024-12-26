@@ -1,0 +1,59 @@
+<div class="card">
+    <div class="card-body">
+      <div class="row justify-content-between mb-2">
+        <div class="w-40 text-end">
+          <div class="btn-group mx-1">
+            <button class="btn btn-outline-primary" [routerLink]="['/', 'admin', 'user', 'add-users']">Add <i class="icon-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <form class="table-responsive theme-scroollbar">
+        <table class="table table-responsive table-striped">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Mobile No</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(data of tableData$ | async; track data){
+            <tr>
+              <th scope="row">{{ data.id }}</th>
+              <td>
+                <ngb-highlight [result]="data.name" [term]="service.searchTerm"></ngb-highlight>
+              </td>
+              <td>
+                <ngb-highlight [result]="data.email" [term]="service.searchTerm"></ngb-highlight>
+              </td>
+              <td>
+                <ngb-highlight [result]="data.mobile" [term]="service.searchTerm"></ngb-highlight>
+              </td>
+              <td>
+                <ul class="action justify-content-center">
+                  <!-- <button class="btn-sm btn-outline-primary mx-1" (click)="confirmStatusChange(data.status, data._id)" [ngClass]="{ 'btn-outline-success': data.status === true, 'btn-outline-danger': data.status !== true }" ngbTooltip="Status">
+                    <i [ngClass]="{ 'icofont-check-circled': data.status, 'icofont-close-circled': data.status !== true }" class="icofont px-1" ps-2 sweet-5></i>
+                  </button> -->
+                  <!-- <button class="btn-sm btn-outline-primary mx-1" ngbTooltip="Details" (click)="redirectToDetails(data?._id)">
+                    <i class="icofont icofont-eye-alt px-1"></i>
+                  </button> -->
+                  <button class="btn-sm btn-outline-danger mx-1" ngbTooltip="Delete" (click)="confirmDeleteEmployee(data._id)">
+                    <i class="fa fa-trash-o px-1 icon_size"></i>
+                  </button>
+                </ul>
+              </td>
+            </tr>
+            } @empty{
+            <tr class="odd">
+              <td colspan="10" class="dataTables_empty" style="text-align: center">No records found</td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,44 @@
+<div class="container-fluid p-0">
+    <div class="row m-0">
+        <div class="col-12 p-0">
+            <div class="login-card login-dark">
+                <div>
+                    <div><a class="logo">
+                            <img class="img-fluid for-light" src="assets/images/logo/favicon3.png" alt="loginpage"><img
+                                class="img-fluid for-dark" src="assets/images/logo/favicon3.png" alt="loginpage"></a>
+                    </div>
+                    <div class="login-main">
+                        <form class="theme-form" [formGroup]="VerifyOtpForm">
+                            <h3>OTP Verification</h3>
+                            <p>Check your E-Mail for OTP </p>                     
+                            <div class="form-group mt-4">
+                                <label class="col-form-label">OTP</label>
+                                <input class="form-control" type="number" required="" formControlName="otp" />
+                                @if(VerifyOtpForm.controls['otp'].touched &&
+                                VerifyOtpForm.controls['otp'].errors?.['required']){
+                                <div class="text text-danger mt-1"> OTP is required.</div>
+                                }
+                                @if(VerifyOtpForm.get('otp')?.touched && VerifyOtpForm.get('otp')?.hasError('pattern')){
+                                <div class="text text-danger mt-1">Please enter a valid OTP</div>
+                                }
+                            </div>
+                            <div class="form-group ">
+                                <div class="text-end mt-3 ">
+                                    <button class="btn btn-primary btn-block w-100 " [disabled]="!VerifyOtpForm.valid"
+                                        (click)="verifyUser()" type="submit">Submit</button>
+                                </div>
+                            </div>
+                            <mat-progress-bar class="mt-2" mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+                            <div class="d-flex justify-content-center sd-error">
+                                <div class="text text-danger mt-1">{{errorMessage}}</div>
+                            </div>
+                            <p class="mt-4 mb-0 text-center">If you haven't received an OTP. <a class="ms-2 add-cursor"
+                                   (click)="resendOtp()">Resend</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

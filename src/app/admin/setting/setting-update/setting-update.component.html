@@ -1,0 +1,102 @@
+<div class="settings-container">
+  <div class="settings-content">
+    <form [formGroup]="settingForm.formGroup" class="row g-3 needs-validation custom-input" novalidate>
+
+      <!-- Image Preview Section -->
+      <div class="row mb-3">
+        <div class="col-md-6 d-flex align-items-center">
+          <div class="image-preview">
+            <ng-container *ngIf="selectedImages.previewUrl; else logoTemplate">
+              <img [src]="selectedImages.previewUrl" alt="Preview Image" class="img-fluid" width="100" />
+            </ng-container>
+
+            <ng-template #logoTemplate>
+              <img *ngIf="data.logo" src="http://localhost:3001/{{data.logo}}" alt="Logo Preview" class="img-fluid" width="100" />
+            </ng-template>
+          </div>
+        </div>
+
+        <!-- File Input Section -->
+        <div class="col-md-6">
+          <label class="form-label" for="imgpicker">Logo</label>
+          <input 
+            id="imgpicker" 
+            class="form-control" 
+            type="file" 
+            (change)="onFileSelected($event)" 
+            accept=".jpg, .jpeg, .png" 
+            aria-describedby="imgpickerHelp" 
+          />
+          <small id="imgpickerHelp" class="form-text text-muted">Upload a .jpg, .jpeg, or .png file.</small>
+        </div>
+      </div>
+
+      <!-- Settings Details Section -->
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <label class="form-label" for="siteName">Name</label>
+          <input 
+            id="siteName" 
+            class="form-control" 
+            type="text" 
+            [value]="data.siteName" 
+            formControlName="siteName"
+            placeholder="Enter site name" 
+          />
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="mobile">Mobile</label>
+          <input 
+            id="mobile" 
+            class="form-control" 
+            type="text" 
+            [value]="data.mobile" 
+            formControlName="mobile"
+            placeholder="Enter Mobile Number" 
+          />
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="email">Email</label>
+          <input 
+            id="email" 
+            class="form-control" 
+            type="text" 
+            [value]="data.email" 
+            formControlName="email"
+            placeholder="Enter Email" 
+          />
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="description">Description</label>
+          <input 
+            id="description" 
+            class="form-control" 
+            type="text" 
+            [value]="data.description" 
+            formControlName="description"
+            placeholder="Enter Description" 
+          />
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="copyRight">CopyRight</label>
+          <input 
+            id="copyRight" 
+            class="form-control" 
+            type="text" 
+            [value]="data.copyRight" 
+            formControlName="copyRight"
+            placeholder="Enter copyRight" 
+          />
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="row">
+        <div class="col-md-12 text-end">
+          <button type="submit" class="btn btn-primary" (click)="onSubmit()">Update</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

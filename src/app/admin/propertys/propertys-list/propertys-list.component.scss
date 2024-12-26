@@ -1,0 +1,59 @@
+.villa-container {
+    background-image: url('/assets/images/login/login_bg.jpg');
+    display: flex;
+    flex-direction: row;
+    // align-items: center;
+    height: 40%;
+    margin: 20px;
+  }
+  
+  .villa-gallery {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .villa-image {
+    width: 100%;
+    display: block;
+    height: 400px;
+    object-fit: cover;
+  }
+  
+  .navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+  
+  .prev-btn,
+  .next-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .villa-details {
+    // text-align: center;
+    color: green;
+    margin: 50px;
+  }
+  
+  .facilities-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .facilities-list li {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="card">
+      <div class="row justify-content-between m-3">
+        <div class="col-md-2 btn-group text-end">
+          <button class="btn btn-outline-primary" (click)="goBack()">Back <i class="icofont icofont-arrow-left"></i></button>
+        </div>
+      </div>
+      <hr />
+      <div class="card-body">
+        <div class="tab-pane fade show" id="bottom-home">
+          <form [formGroup]="addEditUserForm.formGroup" class="row g-3 needs-validation custom-input" novalidate="" [ngClass]="{ 'was-validated': validate }">
+            <div *ngIf="selectedFiles.previewUrl">
+              <img class="img-100 img-h-100 me-2 rounded-circle" [src]="selectedFiles.previewUrl" alt="Preview" width="150" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="imgpicker">Profile Image</label>
+              <input class="form-control" type="file" (change)="onFileSelected($event)" accept=".jpg, .jpeg, .png" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="name">Name<a class="text-danger">*</a></label>
+              <input class="form-control" id="name" placeholder="Name" type="text" formControlName="name" required="" />
+              <div class="invalid-feedback" *ngIf="addEditUserForm.formGroup.get('name')?.hasError('required')">Name is required.</div>
+              <div class="error-msg" *ngIf="addEditUserForm.formGroup.get('name')?.hasError('pattern')">Please enter a valid Name.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="mobile">Mobile<a class="text-danger">*</a></label>
+              <input class="form-control" type="number" id="mobile" placeholder="Mobile" autocomplete="off" formControlName="mobile" required="" pattern="[0-9]{10}$" />
+              <div class="error-msg" *ngIf="addEditUserForm.formGroup.get('mobile')?.hasError('pattern')">Enter valid mobile number.</div>
+              <div class="invalid-feedback" *ngIf="addEditUserForm.formGroup.get('mobile')?.hasError('required')">Mobile is required.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="gender">Gender<a class="text-danger">*</a></label>
+              <ng-select id="gender" [items]="genderTypeList" bindLabel="description" bindValue="value" formControlName="gender" placeholder="Select Gender" required [ngClass]="errorMsgShowed('gender')"> </ng-select>
+              <div class="error-msg" *ngIf="addEditUserForm.formGroup.get('gender')?.hasError('required') && validate">Gender is required.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="email">Email<a class="text-danger">*</a></label>
+              <input class="form-control" id="email" placeholder="Email" type="text" formControlName="email" required="" />
+              <div class="invalid-feedback" *ngIf="addEditUserForm.formGroup.get('email')?.hasError('required')">Email is required.</div>
+              <div class="error-msg" *ngIf="addEditUserForm.formGroup.get('email')?.hasError('email')">Please enter a valid email address.</div>
+            </div>
+            <div class="mt-3 d-flex justify-content-end">
+              <div class="col-md-1 mx-1 text-end">
+                <button class="btn btn-primary" (click)="onSubmit()" type="submit">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

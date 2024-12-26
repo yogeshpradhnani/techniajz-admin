@@ -1,0 +1,160 @@
+.container-fluid {
+    .card {
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      padding: 20px;
+  
+      .card-body {
+        .form-group {
+          margin-bottom: 15px;
+  
+          label {
+            font-weight: bold;
+          }
+  
+          input,
+          select,
+          textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+          }
+  
+          .type-options {
+            display: flex;
+            gap: 15px;
+  
+            label {
+              display: flex;
+              align-items: center;
+  
+              input {
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+  
+        .custom-drop-zone {
+          border: 2px dashed #ccc;
+          border-radius: 4px;
+          text-align: center;
+          padding: 20px;
+          cursor: pointer;
+  
+          .dz-wrapper {
+            .dz-message {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+  
+              .fa-cloud-upload-alt {
+                font-size: 30px;
+                color: #007bff;
+              }
+  
+              h4 {
+                font-size: 16px;
+                color: #666;
+              }
+            }
+          }
+        }
+  
+        .btn-post {
+          background-color: #28a745;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+  
+          &:hover {
+            background-color: #218838;
+          }
+        }
+  
+        .btn-discard {
+          background-color: #dc3545;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+  
+          &:hover {
+            background-color: #c82333;
+          }
+        }
+      }
+    }
+  }
+  
+  .preview-area {
+    margin-top: 20px;
+  }
+  
+  .image-preview {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .image-preview img {
+    display: block;
+    margin: 0 auto 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .image-preview button {
+    margin-top: 5px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .image-preview button:hover {
+    background-color: #d32f2f;
+  }
+
+
+  .image-container {
+    position: relative;
+    display: inline-block;
+    width: 150px; /* Match image width */
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    width: 100%;
+    display: block;
+  }
+  
+  .hover-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth transition */
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .image-container:hover .hover-info {
+    opacity: 1; /* Show hover info on hover */
+  }
+  

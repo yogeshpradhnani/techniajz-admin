@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row justify-content-between mb-2">
+      <!-- Add any buttons or controls here -->
+    </div>
+    <hr />
+    <form class="table-responsive theme-scrollbar">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>S.no.</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of tableData$ | async; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+              <ngb-highlight [result]="data.name" [term]="service.searchTerm"></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight [result]="data.email" [term]="service.searchTerm"></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight [result]="data.contact" [term]="service.searchTerm"></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight [result]="data?.description || ''" [term]="service.searchTerm"></ngb-highlight>
+            </td>
+           
+          </tr>
+          <tr *ngIf="(tableData$ | async)?.length === 0">
+            <td colspan="10" class="text-center">No records found</td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>

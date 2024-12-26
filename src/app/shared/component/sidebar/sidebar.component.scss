@@ -1,0 +1,17 @@
+@import"/src/assets/scss/utils/variables";
+
+::ng-deep a span.txt-primary ,.txt-primary {
+  color: $primary-color !important;
+}
+
+.submenu-name:hover {
+  color: $primary-color !important;
+}
+
+.page-wrapper.compact-sidebar .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links:hover {
+  overflow-y: auto !important;
+}
+
+.sidebar-list:hover,.sidebar-list-focus{
+  background-color: $dark-color !important;
+}

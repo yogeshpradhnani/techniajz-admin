@@ -1,0 +1,74 @@
+.settings-container {
+    padding: 20px;
+    background: #f9f9f9;
+  }
+  
+  .settings-header h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .settings-content {
+    // align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .upload-btn {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .settings-details {
+    flex: 1;
+  }
+  
+  .setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .value {
+    flex: 1;
+    text-align: left;
+    margin-left: 10px;
+    color: #555;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  

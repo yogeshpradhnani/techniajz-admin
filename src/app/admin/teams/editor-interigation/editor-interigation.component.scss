@@ -1,0 +1,93 @@
+@import "ckeditor5/ckeditor5.css";
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url(https://themes.googleusercontent.com/fonts/css?kit=fpjTOVmNbO4Lz34iLyptLUXza5VhXqVC6o75Eld_V98);
+
+@media print {
+  body {
+    margin: 0 !important;
+  }
+}
+
+.main-container {
+  font-family: "Lato";
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ck-content {
+  font-family: "Lato";
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.editor-container_classic-editor .editor-container__editor {
+  min-width: 795px;
+  max-width: 800px;
+  background-color: white;
+}
+
+
+.custom-th-style {
+  background-color: #f5f5f5;
+  color: #333;
+  font-weight: bold;
+  padding: 10px;
+}
+
+body.dark-only .ck {
+  color: #1f2f3e !important;
+}
+
+body.dark-only .ck.ck-dropdown.ck-heading-dropdown .ck-dropdown__button .ck-button__label {
+  color: #1f2f3e !important;
+}
+
+.ck.ck-balloon-panel.ck-tooltip .ck-tooltip__text {
+  color: #ffffff !important;
+}
+
+body.dark-only .ck.ck-icon.ck-icon_inherit-color {
+  stroke: none !important;
+}
+
+strong {
+  font-weight: 700;
+  text-decoration: none;
+  vertical-align: baseline;
+  font-size: 12pt;
+  font-family: "Calibri" !important;
+  font-style: normal;
+}
+
+body.dark-only span.c {
+  color: #1f2f3e !important;
+  font-family: "Calibri" !important;
+  font-size: 12pt;
+}
+
+.c42 {
+  font-size: 14pt !important;
+}
+
+.c13 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0%;
+}
+
+.ck-content .table table td {
+  padding: 0.2em 0.4em;
+}
+
+p {
+  line-height: normal;
+}
+
+
+#pdf-content {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+}

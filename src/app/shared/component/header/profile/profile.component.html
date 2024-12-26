@@ -1,0 +1,38 @@
+<div class="d-flex align-items-center profile-media">
+  <img class="b-r-25 img-30 img-h-30 img-bg rounded-circle" src="{{!(profilePicture) ? imageUrl+profilePicture : '/assets/images/dashboard/profile.png'}}" alt="">
+  <div class="flex-grow-1 user"><span>{{userName}}</span>
+    <!-- <p class="mb-0 font-nunito">{{role }}  </p> -->
+      <svg>
+        <use href="assets/svg/icon-sprite.svg#header-arrow-down"></use>
+      </svg>
+    
+  </div>
+</div>
+<ul class="profile-dropdown onhover-show-div">
+    <li><a [routerLink]="['/', 'admin', 'user-profile']">
+      <app-feathericon [icon]="'user'"></app-feathericon>
+      <span>Profile</span>
+    </a></li>
+
+    <li><a href="admin/changepassword/change">
+      <app-feathericon [icon]="'log-in'"></app-feathericon>
+      <span>Change Password</span>
+    </a></li>
+
+    <li><a href="admin/setting/update">
+      <app-feathericon [icon]="'log-in'"></app-feathericon>
+      <span>Setting</span>
+    </a></li>
+
+
+
+    <li><a (click)="logOut()">
+      <app-feathericon [icon]="'log-in'"></app-feathericon>
+      <span>Log Out</span>
+    </a></li>
+</ul>
+
+
+
+
+
